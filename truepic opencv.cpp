@@ -1,41 +1,71 @@
 // truepic opencv.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
+#include <filesystem>
+#include <fstream> // Include fstream for file operations
 #include <iostream>
+
 #include <opencv2/core.hpp>
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/highgui.hpp>
+
 using namespace cv;
+using namespace std;
+namespace fs = std::filesystem;
 
 int main(int argc, char * argv[])
 {
-    if (argc < 2) // Check if an argument is provided
-    {
-        std::cerr << "Usage: " << argv[0] << " <path_to_image>" << std::endl;
+    try {
+        string imagePath = "C:\\Users\\almoo\\source\\repos\\truepic_opencv\\test.jpg";
+        // Debugging output to verify the file path
+        cout << "Attempting to load image from path: " << imagePath << endl;
+
+        if (!fs::exists(imagePath)) {
+            cerr << "Error: File does not exist!" << endl;
+            return 1;
+        }
+
+        // Check file permissions
+        ifstream file(imagePath);
+        if (!file.good()) {
+            cerr << "Error: Cannot read file, check permissions!" << endl;
+            return -1;
+        }
+        file.close();
+
+        Mat img = Mat::zeros(100, 100, CV_8UC3);
+        if (img.empty()) {
+            cerr << "Failed to create image!" << endl;
+            return -1;
+        }
+        cout << "OpenCV is working correctly!" << endl;
+
+        //IplImage* img = CvLoadImage("2_DeepViewOutput.png");
+        
+        img = imread(imagePath, 0);
+        if (img.empty()) {
+            cerr << "Error loading image!" << std::endl;
+            return -1;
+        }
+
+        namedWindow("First OpenCV Application", WINDOW_AUTOSIZE);
+        imshow("First OpenCV Application", img);
+        moveWindow("First OpenCV Application", 0, 45);
+        waitKey(0);
+        destroyAllWindows();
+    }
+    catch (const Exception& e) {
+        cerr << "OpenCV error: " << e.what() << endl;
+        return -1;
+    }
+    catch (const exception& e) {
+        cerr << "Standard exception: " << e.what() << endl;
+        return -1;
+    }
+    catch (...) {
+        cerr << "Unknown error occurred!" << endl;
         return -1;
     }
 
-    cv::Mat img = cv::imread("test.jpg", 0);
-    if (img.empty()) {
-        std::cerr << "Error loading image!" << std::endl;
-        return 1;
-    }
-
-    namedWindow("First OpenCV Application", WINDOW_AUTOSIZE);
-    cv::imshow("First OpenCV Application", img);
-    cv::moveWindow("First OpenCV Application", 0, 45);
-    cv::waitKey(0);
-    cv::destroyAllWindows();
     return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
