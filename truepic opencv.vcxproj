@@ -110,8 +110,12 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\Users\almoo\Library\opencv\opencv\build\x64\vc16\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opencv_world490.lib;opencv_world490d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opencv_world490.lib;opencv_world490d.lib;C:\Users\almoo\Library\opencv\opencv\build\x64\vc16\lib\*.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy C:\Users\almoo\Library\opencv\opencv\build\x64\vc16\bin\opencv_world490.dll "C:\Users\almoo\source\repos\truepic opencv\x64\Debug" /c/y
+</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>

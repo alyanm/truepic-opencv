@@ -7,9 +7,13 @@
 #include <opencv2/highgui.hpp>
 using namespace cv;
 
-int main()
+int main(int argc, char * argv[])
 {
-    std::cout << "Hello World!\n";
+    if (argc < 2) // Check if an argument is provided
+    {
+        std::cerr << "Usage: " << argv[0] << " <path_to_image>" << std::endl;
+        return -1;
+    }
 
     cv::Mat img = cv::imread("test.jpg", 0);
     if (img.empty()) {
