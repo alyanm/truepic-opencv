@@ -138,6 +138,9 @@
   <ItemGroup>
     <ClCompile Include="truepic opencv.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="truepic opencv.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
