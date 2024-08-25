@@ -136,10 +136,12 @@ xcopy C:\Users\almoo\source\repos\truepic_opencv\images\*.jpg "C:\Users\almoo\so
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="inc\FaceDetection.h" />
     <ClInclude Include="inc\truepic opencv.h" />
     <ClInclude Include="Utility.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\FaceDetection.cpp" />
     <ClCompile Include="src\truepic opencv.cpp" />
     <ClCompile Include="src\Utility.cpp" />
   </ItemGroup>

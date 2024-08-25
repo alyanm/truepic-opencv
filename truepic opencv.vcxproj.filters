@@ -21,12 +21,18 @@
     <ClInclude Include="inc\truepic opencv.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="inc\FaceDetection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\truepic opencv.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Utility.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FaceDetection.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
