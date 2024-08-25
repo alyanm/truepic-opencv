@@ -11,8 +11,9 @@
 #include <opencv2/imgproc.hpp>
 #include <opencv2/objdetect.hpp>
 
-#include "truepic opencv.h"
-#include "Utility.h"
+#include "../inc/truepic opencv.h"
+#include "../inc/Utility.h"
+
 using namespace Utility;
 
 using namespace cv;

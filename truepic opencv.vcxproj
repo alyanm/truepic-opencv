@@ -116,7 +116,7 @@
     </Link>
     <PostBuildEvent>
       <Command>xcopy C:\Users\almoo\Library\opencv\opencv\build\x64\vc16\bin\*.dll "C:\Users\almoo\source\repos\truepic_opencv\x64\Debug" /c/y
-</Command>
+xcopy C:\Users\almoo\source\repos\truepic_opencv\images\*.jpg "C:\Users\almoo\source\repos\truepic_opencv\x64\Debug" /c/y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -136,12 +136,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="truepic opencv.cpp" />
-    <ClCompile Include="Utility.cpp" />
+    <ClInclude Include="inc\truepic opencv.h" />
+    <ClInclude Include="Utility.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="truepic opencv.h" />
-    <ClInclude Include="Utility.h" />
+    <ClCompile Include="src\truepic opencv.cpp" />
+    <ClCompile Include="src\Utility.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
