@@ -1,4 +1,4 @@
-This sample program uses OpenCV and Haar Cascades pre built ML model to detect faces in an image file.  
+This sample program uses OpenCV (version 4.10) and Haar Cascades pre built ML model to detect faces in an image file.  
 It is written in C++ compiled on Visual Studio 2022
 
 It accepts two optional command line parameters, the image file name and an alternate Haar Cascade file which can be used to detect other things besides images.
