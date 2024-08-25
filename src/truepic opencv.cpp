@@ -42,8 +42,8 @@ int main(int argc, const char * argv[])
             imageFileName = imagePath;
         }
 
-        FaceDetection* faceDetect = new FaceDetection(imageFileName, cascadeFileName);
-        faceDetect->detectFacesAndDisplay();
+        FaceDetection faceDetect = FaceDetection(imageFileName, cascadeFileName);
+        faceDetect.detectFacesAndDisplay();
     }
     catch (const Exception& e) {
         cerr << "OpenCV error: " << e.what() << endl;
