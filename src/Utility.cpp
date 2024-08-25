@@ -1,7 +1,7 @@
 #include "../inc/Utility.h"
 
 #include <filesystem>
-#include <fstream> // Include fstream for file operations
+#include <fstream>
 #include <iostream>
 
 #include <opencv2/core.hpp>
@@ -10,7 +10,10 @@ using namespace std;
 using namespace cv;
 namespace fs = filesystem;
 
+/** Helpful utility functions. */
 namespace Utility {
+
+    /** Verify that OpenCV has been installed and is working. */
     void VerifyOpenCV()
     {
         Mat image = Mat::zeros(100, 100, CV_8UC3);
@@ -19,20 +22,22 @@ namespace Utility {
         }
     }
 
-    void CheckFileValidity(const string& imagePath)
+    /** Verify that given file exists and permissions allow access. */
+    void CheckFileValidity(const string& fileName)
     {
-        if (!fs::exists(imagePath)) {
-            throw runtime_error("Error: File does not exist: " + imagePath);
+        if (!fs::exists(fileName)) {
+            throw runtime_error("Error: File does not exist: " + fileName);
         }
 
         // Check file permissions
-        ifstream file(imagePath);
+        ifstream file(fileName);
         if (!file.good()) {
-            throw runtime_error("Error: Cannot read file, check permissions: " + imagePath);
+            throw runtime_error("Error: Cannot read file, check permissions: " + fileName);
         }
         file.close();
     }
 
+    /** Display help message for the program. */
     void Help(const char* argv[])
     {
         cout << "\nThis program demonstrates the use of cv::CascadeClassifier class to detect objects (Face). You can use Haar or LBP features.\n"

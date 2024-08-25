@@ -10,6 +10,7 @@ class FaceDetection
 public:
     FaceDetection(const std::string inputName, const std::string cascadeName);
     void detectFacesAndDisplay();
+
 private:
     cv::Mat img;
     cv::CascadeClassifier faceCascade;

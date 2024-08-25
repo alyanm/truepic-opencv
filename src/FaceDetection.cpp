@@ -32,11 +32,6 @@ FaceDetection::FaceDetection(const string imageFileName, const string haarCascad
     if (!faceCascade.load(haarCascadeFileName)) {
         throw runtime_error("Error loading cascade file: " + haarCascadeFileName);
     }
-
-    // Convert the image to grayscale
-    Mat gray;
-    cout << "Convert image to grayscale" << endl;
-    cvtColor(img, gray, COLOR_BGR2GRAY);
 }
 
 /** Detect faces in the image and display the result */
